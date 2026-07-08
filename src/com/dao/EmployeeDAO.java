@@ -5,7 +5,7 @@ import java.util.*;
 
 public class EmployeeDAO {
       
-    private static List list;
+    private static List<EmployeeDTO> list;
 
     static{
         list = new ArrayList<>();
@@ -62,35 +62,32 @@ public class EmployeeDAO {
             return "id not found";
          }
         }catch(Exception e){
-            System.out.println("Exception occured"+e);
+            System.out.println("exception occured"+e);
             return "";
         }
     }
 
-    public void readSingleEmployee(int id1){
+    public EmployeeDTO readSingleEmployee(int id1){
+        EmployeeDTO nedto = null;
         try{
         boolean isFound = false;
         for(int i=0;i<list.size();i++){
             EmployeeDTO edto = (EmployeeDTO)list.get(i);
             if(edto.getEid()==id1){
-                System.out.println(edto.getEage()+" "+edto.getEid()+" "+edto.getEname()+" "+edto.getEpincode());
+                nedto = edto;
                 isFound = true;
                 break;
             }
         }
-
-        if(!isFound){
-            System.out.println("employee id is invalid");
-        }
-
        }catch(Exception e){
           System.out.println("Exception occured"+e);
        }
+
+        return nedto;
     }
 
-    public void readAllEmployee(){
-           
-           System.out.println(list);
+    public List<EmployeeDTO> readAllEmployee(){
+           return EmployeeDAO.list;
     }
 
 }
