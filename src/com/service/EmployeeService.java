@@ -54,12 +54,11 @@ public class EmployeeService {
            return employeeDAO.updateSingleEmployee(id,name);
     }
 
-    public void readSingleEmployee(int id1){
-         employeeDAO.readSingleEmployee(id1);
+    public EmployeeDTO readSingleEmployee(int id1){
+         return employeeDAO.readSingleEmployee(id1);
     }
 
-    public void readAllEmployee(){
-         System.out.println("reading in service");
-         employeeDAO.readAllEmployee();
+    public List<EmployeeDTO> readAllEmployee(){
+         return employeeDAO.readAllEmployee();
     }
 }
