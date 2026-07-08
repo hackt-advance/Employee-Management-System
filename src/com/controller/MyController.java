@@ -10,7 +10,7 @@ public class MyController {
          employeeService = new EmployeeService();
      }
 
-     public List addEmployee(EmployeeDTO edto){
+     public List<EmployeeDTO> addEmployee(EmployeeDTO edto){
         return employeeService.addEmployee(edto);
      }
 
@@ -22,12 +22,11 @@ public class MyController {
      return employeeService.updateSingleEmployee(id,name);
   }
 
-  public void readSingleEmployee(int id1){
-       employeeService.readSingleEmployee(id1);
+  public EmployeeDTO readSingleEmployee(int empId){
+       employeeService.readSingleEmployee(empId);
   }
 
-  public void readAllEmployee(){
-       System.out.println("reading in service");
+  public List<EmployeeDTO> readAllEmployee(){
        employeeService.readAllEmployee();
   }
 
